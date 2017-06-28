@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	console.info("aa");
+/* 	$("#b4").click(function(){
+		//url:待装入 HTML 网页网址。
+		//data:发送至服务器的 key/value 数据。在jQuery 1.3中也可以接受一个字符串了。
+		//callback:载入成功时回调函数。
+		//$("#d4").load("test1.txt");
+		$("#d4").load("test1.txt");
+	}) */
+	
+ /* 	$("#d4").load("Ajax","username=zongxing&password=123",function(data){
+		console.info(data);
+	}); */
+	$("#b5").click(function(){
+		$.get("Ajax","username=zzq&password=123",function(date){
+			console.info(date);
+			$("#d5").html(date);
+		})
+	})
+	$("#b6").click(function(){
+		$.get("Ajax","username=zzq&password=123",function(date){
+			console.info(date);
+			$("#d6").html(date);
+		})
+	})
+$("#b7").click(function(){
+	$.ajax({
+		type:"get",
+		url:"Ajax",
+		dateType:"text",
+		success:function(date){
+			console.info(date);
+			$("#d7").html(date);
+		}
+	})
+	
+	
+})
+	$("#b8").click(function() {
+					$.getJSON("Jasonservlet",function(data){
+						console.info(data[1].name);
+						console.info(data[1].password);
+					})
+				})
+	$("#b9").click(function(){
+		$.getJSON("Jasonservlet",function(date){
+			var str="";
+			$.each(date,function(i,item){
+				str+=item.name+",";
+				console.info(item.name);
+			})
+			$("#d9").html(str);
+			$("input").each(function(i,item){
+				console.info($(item).val());
+			})
+		})
+	})
+	
+	
+})
+
+</script>
+</head>
+<body>
+<button id="b1" onclick="test1()">按钮1</button>
+<button id="b2" onclick="test1()">按钮2</button>
+<button id="b3" onclick="test1()">按钮3</button>
+<button id="b4" >按钮4</button>
+<button id="b5" >按钮5</button>
+<button id="b6" >按钮6</button>
+<button id="b7" >按钮7</button>
+<button id="b8" >按钮8</button>
+<button id="b9" >按钮9</button>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<div id="d4"></div>
+<div id="d5"></div>
+<div id="d6"></div>
+<div id="d7"></div>
+<div id="d8"></div>
+<div id="d9"></div>
+<input type="text" value="text1">
+<input type="text" value="text2">
+</body>
+</html>

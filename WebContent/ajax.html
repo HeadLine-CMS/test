@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function test1() {
+	var xmlhttp;
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("d1").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET", "test1.txt", true);
+	xmlhttp.send();
+
+}
+
+</script>
+</head>
+<body>
+<button id="b1" onclick="test1()">按钮1</button>
+<div id="d1"></div>
+</body>
+</html>
